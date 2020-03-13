@@ -24,7 +24,16 @@ export default class HomeView extends Component {
     this.state = {};
     this.flatListRef = React.createRef();
   }
-
+/**
+     * Method for Logging User Out
+     * @function 
+     * @example
+     * 
+     * AsyncStorage.removeItem('token');
+     * this.props.navigation.navigate('Auth');
+     *
+     *
+     */
   logoutUser = async() => {
     Alert.alert(
       'Logout',

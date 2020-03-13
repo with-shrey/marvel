@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import LoginView from './LoginView';
-import { connect } from 'react-redux';
-import * as loginActions from '../actions';
-import { getLoginState } from '../selectors';
+import React, { Component } from "react";
+import LoginView from "./LoginView";
+import { connect } from "react-redux";
+import * as loginActions from "../actions";
+import { getLoginState } from "../selectors";
 
 /**
  * Container for LoginView connects view to Redux
@@ -14,23 +14,35 @@ import { getLoginState } from '../selectors';
  * )
  */
 class LoginContainer extends Component {
-    render() {
-        return <LoginView {...this.props} />;
-    }
+  render() {
+    return <LoginView {...this.props} />;
+  }
+}
+/**
+ * Methods for mapping
+ * @param {object} state state from Component to Props
+ * @function
+ * @example
+ *
+ * mapStateToProps(state)
+ *
+ */
+function mapStateToProps(state) {
+  return {
+    status: getLoginState(state),
+    loading: state.loginReducer.loading
+  };
+}
+/**
+ * Methods for mapping
+ * @param {object} dispatch dispatch from Component to Props
+ * @function
+ *
+ */
+function mapDispatchToProps(dispatch) {
+  return {
+    onLogin: (em, pwd) => dispatch(loginActions.requestLogin(em, pwd))
+  };
 }
 
-function mapStateToProps(state) {
-    return {
-        status: getLoginState(state),
-        loading: state.loginReducer.loading
-    };
-}
-function mapDispatchToProps(dispatch) {
-    return {
-        onLogin: (un, pwd) => dispatch(loginActions.requestLogin(un, pwd))
-    };
-}
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(LoginContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);
