@@ -9,8 +9,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import styles from "./styles";
-import { loginBg } from '../../../assets/login-bg.png';
-import LoadingIndicator from 'app/components/LoadingIndicator';
+import LoadingIndicator from "app/components/LoadingIndicator";
 import Toast from "react-native-simple-toast";
 
 export default class LoginView extends Component {
@@ -20,7 +19,6 @@ export default class LoginView extends Component {
   };
   handleInputUname = e => {
     this.setState({ uname: e });
-    // this.props.onLogin("uname", "password");
   };
   handleInputPassword = e => {
     this.setState({ password: e });
@@ -55,10 +53,7 @@ export default class LoginView extends Component {
 
     return (
       <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-        	{
-					this.props.loading&&
-					<LoadingIndicator/>
-				}
+        {this.props.loading && <LoadingIndicator />}
         <Image
           source={require("../../../assets/login-bg.png")}
           style={styles.backgroundImage}
@@ -88,15 +83,9 @@ export default class LoginView extends Component {
         />
         <TouchableOpacity onPress={() => this.handleLogin()}>
           <View style={styles.btnLogin}>
-            <Text
-              style={styles.btnLoginText}
-              
-            >
-              LOGIN
-            </Text>
+            <Text style={styles.btnLoginText}>LOGIN</Text>
           </View>
         </TouchableOpacity>
-        {/* <Text>Status: {this.props.status}</Text> */}
       </KeyboardAvoidingView>
     );
   }
