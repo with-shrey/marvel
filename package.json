@@ -1,0 +1,43 @@
+{
+  "name": "Marvell",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android --main-activity SplashActivity",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@react-native-community/async-storage": "^1.8.1",
+    "react": "16.8.3",
+    "react-native": "^0.61.5",
+    "react-native-gesture-handler": "^1.1.0",
+    "react-native-screens": "^2.3.0",
+    "react-native-simple-toast": "^1.0.0",
+    "react-navigation": "^3.8.1",
+    "react-navigation-stack": "^2.0.15",
+    "react-redux": "^7.0.2",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^5.10.0",
+    "redux-saga": "^1.0.2",
+    "reselect": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.8.3",
+    "@babel/runtime": "^7.8.3",
+    "@react-native-community/eslint-config": "^0.0.6",
+    "@react-native-community/eslint-plugin": "^1.0.0",
+    "babel-jest": "^24.9.0",
+    "eslint": "^6.8.0",
+    "jest": "^24.9.0",
+    "metro-react-native-babel-preset": "^0.56.4",
+    "react-test-renderer": "16.9.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
