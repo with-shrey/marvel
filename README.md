@@ -64,3 +64,7 @@ This Architecture scales smoothly for medium -large apps. The following feature 
 5. Connect a mobile device to your development machine
 6. Run the test application `npm run android`
 7. Enjoy!!!
+
+## To run the test
+
+1. Run `npm run test -u`
