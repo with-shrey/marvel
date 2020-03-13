@@ -37,7 +37,6 @@ export default function* loginAsync(action) {
         if(response.code === 401){
         Toast.show("Invalid Email or Password");}
       }, 200);
-      throw new Error(response.message)
     }
   } catch (error) {
     yield put(loginActions.loginFailed());
