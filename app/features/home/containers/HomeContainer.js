@@ -3,6 +3,15 @@ import HomeView from "./HomeView";
 import { connect } from "react-redux";
 import { requestList } from "../actions";
 
+/**
+ * Container for HomeScreen connects to view to Redux
+ * @component
+ * @example
+ *
+ * return (
+ *   <HomeContainer />
+ * )
+ */
 class HomeContainer extends Component {
   componentDidMount() {
     this.props.requestList();
@@ -12,7 +21,7 @@ class HomeContainer extends Component {
     return <HomeView {...this.props} />;
   }
 }
-
+// Extract loading status and list data from redux
 function mapStateToProps({ listReducer }) {
   const { list, loadingList } = listReducer;
   return { list, loadingList };

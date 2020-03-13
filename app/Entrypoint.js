@@ -10,6 +10,16 @@ import Navigator from "app/navigation";
 import configureStore from "app/store";
 const { persistor, store } = configureStore();
 
+/**
+ * Component to Configure Redux and Other Services
+ *
+ * @component
+ * @example
+ *
+ * return (
+ *   <Entrypoint />
+ * )
+ */
 export default class Entrypoint extends Component {
   render() {
     return (

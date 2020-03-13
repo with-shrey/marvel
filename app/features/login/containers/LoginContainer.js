@@ -4,6 +4,15 @@ import { connect } from 'react-redux';
 import * as loginActions from '../actions';
 import { getLoginState } from '../selectors';
 
+/**
+ * Container for LoginView connects view to Redux
+ * @component
+ * @example
+ *
+ * return (
+ *   <LoginContainer />
+ * )
+ */
 class LoginContainer extends Component {
     render() {
         return <LoginView {...this.props} />;
