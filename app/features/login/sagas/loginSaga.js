@@ -18,7 +18,8 @@ import Toast from "react-native-simple-toast";
      * @function*
      *
      *
-     */export default function* loginAsync(action) {
+     */
+export default function* loginAsync(action) {
   try {
     const response = yield call(
       Api,
@@ -33,7 +34,8 @@ import Toast from "react-native-simple-toast";
         "token",
         `${tokenType} ${accessToken}`
       );
-      yield put(loginActions.onLoginResponse(response.user));
+      const {id, email} = response.user;
+      yield put(loginActions.onLoginResponse({ id, email }));
       yield call(navigateToHome);
     } else {
       yield put(loginActions.loginFailed());
@@ -44,6 +46,7 @@ import Toast from "react-native-simple-toast";
       }, 200);
     }
   } catch (error) {
+    console.log(error);
     yield put(loginActions.loginFailed());
     Toast.show(error.message);
   }

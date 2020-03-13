@@ -9,12 +9,22 @@ import AsyncStorage from '@react-native-community/async-storage';
      * @function*
      *
      */
-export default function* loadListAsync() {
+export default function* loadListAsync(action) {
     try{
-        const token = yield call([AsyncStorage, AsyncStorage.getItem], 'token')
+        let token;
+        if(action.token){
+            token = action.token;
+        }else{
+          token = yield call([AsyncStorage, AsyncStorage.getItem], 'token');
+        }
         const response = yield call(Api, ApiConstants.GET_LIST, undefined , 'GET', token);
-        yield put(actions.onListResponse(response.characters));
+        if(response.characters){
+            yield put(actions.onListResponse(response.characters));
+        } else {
+            yield put(actions.listFailed());
+        }
     }catch(error){
-        console.error(error)
+        console.error(error);
+        yield put(actions.listFailed());
     }
 }
