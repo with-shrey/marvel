@@ -63,7 +63,8 @@ This Architecture scales smoothly for medium -large apps. The following feature 
 4. Start the packager with `react-native start`
 5. Connect a mobile device to your development machine
 6. Run the test application `npm run android`
-7. Enjoy!!!
+7. Credential to login - email: admin@marvel.com, password: zaq1xsw2
+8. Enjoy!!!
 
 ## To run the test
 
