@@ -10,6 +10,7 @@ export default class HomeView extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.flatListRef = React.createRef();
   }
 
   logoutUser = async() => {
@@ -31,13 +32,19 @@ export default class HomeView extends Component {
     );
   }
 
+  componentWillReceiveProps(nextProps){
+    if(this.props.loadingList === false && nextProps.loadingList === true){
+      this.flatListRef.current.scrollToOffset({ animated: true, offset: 0 });
+    }
+  }
+
   render() {
     return (
       <View style={styles.mainContainer}>
         <HeaderView />
         <View style={styles.listContainer}>
-
           <FlatList
+            ref={this.flatListRef}
             data={this.props.list}
             renderItem={({ item }) => (
               <MarvelListCard key={item.id} {...item} />
