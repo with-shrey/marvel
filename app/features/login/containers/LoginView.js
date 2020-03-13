@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import {
   View,
-  Button,
   Text,
   Image,
   TextInput,
   KeyboardAvoidingView,
-  TouchableOpacity
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  Keyboard
 } from "react-native";
 import styles from "./styles";
-import { loginBg } from '../../../assets/login-bg.png';
-import LoadingIndicator from 'app/components/LoadingIndicator';
+import { loginBg } from "../../../assets/login-bg.png";
+import LoadingIndicator from "app/components/LoadingIndicator";
 import Toast from "react-native-simple-toast";
 
 export default class LoginView extends Component {
@@ -50,54 +51,52 @@ export default class LoginView extends Component {
       this.props.onLogin(this.state.uname, this.state.password);
     }
   };
+  dismissKb = () => {};
   render() {
-    // const classes = useStyles();
-
     return (
-      <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-        	{
-					this.props.loading&&
-					<LoadingIndicator/>
-				}
-        <Image
-          source={require("../../../assets/login-bg.png")}
-          style={styles.backgroundImage}
-        />
-        <Image
-          source={require("../../../assets/marvel-logo.png")}
-          style={styles.logo}
-        />
-        <TextInput
-          onChangeText={this.handleInputUname}
-          underlineColorAndroid="transparent"
-          placeholder="Email"
-          placeholderTextColor="white"
-          autoCapitalize="none"
-          name="uname"
-          style={styles.email}
-        />
-        <TextInput
-          onChangeText={this.handleInputPassword}
-          underlineColorAndroid="transparent"
-          placeholder="Password"
-          secureTextEntry
-          placeholderTextColor="white"
-          autoCapitalize="none"
-          name="password"
-          style={styles.password}
-        />
-        <TouchableOpacity onPress={() => this.handleLogin()}>
-          <View style={styles.btnLogin}>
-            <Text
-              style={styles.btnLoginText}
-              
-            >
-              LOGIN
-            </Text>
-          </View>
-        </TouchableOpacity>
-        {/* <Text>Status: {this.props.status}</Text> */}
-      </KeyboardAvoidingView>
+      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+        <KeyboardAvoidingView
+          style={styles.container}
+          behavior="padding"
+          enabled
+        >
+          {this.props.loading && <LoadingIndicator />}
+          <Image
+            source={require("../../../assets/login-bg.png")}
+            style={styles.backgroundImage}
+          />
+          <Image
+            source={require("../../../assets/marvel-logo.png")}
+            style={styles.logo}
+          />
+
+          <TextInput
+            onChangeText={this.handleInputUname}
+            underlineColorAndroid="transparent"
+            placeholder="Email"
+            placeholderTextColor="white"
+            autoCapitalize="none"
+            name="uname"
+            style={styles.email}
+          />
+          <TextInput
+            onChangeText={this.handleInputPassword}
+            underlineColorAndroid="transparent"
+            placeholder="Password"
+            secureTextEntry
+            placeholderTextColor="white"
+            autoCapitalize="none"
+            name="password"
+            style={styles.password}
+          />
+
+          <TouchableOpacity onPress={() => this.handleLogin()}>
+            <View style={styles.btnLogin}>
+              <Text style={styles.btnLoginText}>LOGIN</Text>
+            </View>
+          </TouchableOpacity>
+        </KeyboardAvoidingView>
+      </TouchableWithoutFeedback>
     );
   }
 }

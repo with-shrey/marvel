@@ -4,7 +4,7 @@
  * un - username
  * pwd - password
  */
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from "@react-native-community/async-storage";
 import { put, call } from "redux-saga/effects";
 import * as loginActions from "../actions";
 import { navigateToHome } from "app/navigation/NavigationHelpers";
@@ -34,10 +34,10 @@ export default function* loginAsync(action) {
       yield put(loginActions.loginFailed());
       yield put(loginActions.disableLoader({}));
       setTimeout(() => {
-        if(response.code === 401){
-        Toast.show("Invalid Email or Password");}
+        if (response.code === 401) {
+          Toast.show("Invalid Email or Password");
+        }
       }, 200);
-      throw new Error(response.message)
     }
   } catch (error) {
     yield put(loginActions.loginFailed());
