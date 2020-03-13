@@ -101,15 +101,7 @@ export default class LoginView extends Component {
         />
         <TouchableOpacity onPress={() => this.handleLogin()}>
           <View style={styles.btnLogin}>
-<<<<<<< HEAD
             <Text style={styles.btnLoginText}>LOGIN</Text>
-=======
-            <Text
-              style={styles.btnLoginText}
-            >
-              LOGIN
-            </Text>
->>>>>>> 02bc91f74e02cd1362768311a566c419d48712c6
           </View>
         </TouchableOpacity>
       </KeyboardAvoidingView>
