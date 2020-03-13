@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
     flex: 1
   },
   flatListContainer: {
-      // paddingBottom: 150
   },
   listContainer: {
     flex: 1,

@@ -12,8 +12,13 @@ import Api from "../../../api";
 import ApiConstants from "../../../api/ApiConstants";
 import Toast from "react-native-simple-toast";
 
-// Our worker Saga that logins the user
-export default function* loginAsync(action) {
+/**
+     * Method for logging in user
+     * @param {object} action payload given from Action
+     * @function*
+     *
+     *
+     */export default function* loginAsync(action) {
   try {
     const response = yield call(
       Api,
@@ -32,7 +37,6 @@ export default function* loginAsync(action) {
       yield call(navigateToHome);
     } else {
       yield put(loginActions.loginFailed());
-      yield put(loginActions.disableLoader({}));
       setTimeout(() => {
         if (response.code === 401) {
           Toast.show("Invalid Email or Password");

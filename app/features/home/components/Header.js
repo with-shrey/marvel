@@ -5,7 +5,17 @@ import RefreshIcon from 'app/assets/icons/refresh.png'
 import { connect } from 'react-redux';
 import { requestList } from "../actions";
 
-function MarvelListCard(props) {
+/**
+ * Component for CharacterListScreen Header
+ *
+ * @component
+ * @example
+ *
+ * return (
+ *   <Header/>
+ * )
+ */
+function Header(props) {
     return(
         <View style={style.container}>
             <Text style={style.title}>Marvel Characters</Text>
@@ -19,4 +29,4 @@ function MarvelListCard(props) {
 }
 
 
-export default connect(null, { requestList })(MarvelListCard)
+export default connect(null, { requestList })(Header)

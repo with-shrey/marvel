@@ -1,6 +1,16 @@
 import { createStackNavigator } from 'react-navigation';
 import Login from 'app/features/login/containers/LoginContainer';
 
+/**
+ * Component for Stack Navigation to house Authentication Routes
+ *
+ * @component
+ * @example
+ *
+ * return (
+ *   <AuthNavigator />
+ * )
+ */
 const AuthNavigator = createStackNavigator(
   {
     Login: {

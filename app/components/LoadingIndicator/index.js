@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
 import { View, Image, Animated, Easing } from 'react-native';
 import styles from './styles';
+import Images from 'app/config/images';
 
+/**
+ * Component for showing Loading Indicator with backdrop
+ *
+ * @component
+ * @example
+ *
+ * return (
+ *   <LoadingIndicator />
+ * )
+ */
 export default class LoadingIndicator extends Component {
     constructor(props) {
         super(props)
@@ -12,6 +23,7 @@ export default class LoadingIndicator extends Component {
         this.runAnimation();
     }
 
+    //Run Spin Animation infinite times
     runAnimation(){
         this.spinValue.setValue(0);
         Animated.timing(
@@ -25,15 +37,17 @@ export default class LoadingIndicator extends Component {
     }
 
     render() {
+        // switch values between given ranges
         const spin = this.spinValue.interpolate({
             inputRange: [0, 1],
             outputRange: ['0deg', '360deg']
           })
+
         return (
             <>
                 <View style={styles.container}>
                     <Animated.Image
-                        source={require('../../assets/images/loader.png')}
+                        source={Images.loader}
                         style={{transform: [{rotate: spin}], height: 40, width:  40 }}
                     />
                 </View>

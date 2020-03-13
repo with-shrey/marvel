@@ -4,8 +4,20 @@ import MarvelListCard from "app/features/home/components/MarvelListCard";
 import HeaderView from "app/features/home/components/Header";
 import styles from "./ListStyles";
 import LoadingIndicator from "app/components/LoadingIndicator";
-import LogoutIcon from 'app/assets/icons/logout.png'
 import AsyncStorage from '@react-native-community/async-storage';
+import Images from 'app/config/images';
+
+/**
+ * Component for HomeScreen View
+ *
+ * @component
+ * @example
+ *
+ * Transfer all redux props to View
+ * return (
+ *   <HomeView  {...this.props}/>
+ * )
+ */
 export default class HomeView extends Component {
   constructor(props) {
     super(props);
@@ -32,6 +44,7 @@ export default class HomeView extends Component {
     );
   }
 
+  // Scroll list to top when loading starts
   componentWillReceiveProps(nextProps){
     if(this.props.loadingList === false && nextProps.loadingList === true){
       this.flatListRef.current.scrollToOffset({ animated: true, offset: 0 });
@@ -59,7 +72,7 @@ export default class HomeView extends Component {
             onPress={() => this.logoutUser()}
         >
             <View style={styles.floatingButtonBG}></View>
-            <Image source={LogoutIcon} style={styles.floatingIcon}/>
+            <Image source={Images.logoutIcon} style={styles.floatingIcon}/>
         </TouchableOpacity>
       </View>
     );

@@ -1,7 +1,17 @@
 import { createAppContainer,createStackNavigator } from 'react-navigation';
 import Home from 'app/features/home/containers/HomeContainer';
 
-const RNApp = createStackNavigator(
+/**
+ * Component for Stack Navigation to house Authenticated Routes
+ *
+ * @component
+ * @example
+ *
+ * return (
+ *   <AppNavigator />
+ * )
+ */
+const AppNavigator = createStackNavigator(
     {
         Home: {
             screen: Home,
@@ -13,4 +23,4 @@ const RNApp = createStackNavigator(
     }
 );
 
-export default createAppContainer(RNApp);
+export default createAppContainer(AppNavigator);
