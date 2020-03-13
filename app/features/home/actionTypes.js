@@ -1,8 +1,4 @@
-//loaders
-export const HOMESCREEN_ENABLE_LOADER = 'HOMESCREEN_ENABLE_LOADER';
-export const HOMESCREEN_DISABLE_LOADER = 'HOMESCREEN_DISABLE_LOADER';
-
-// get list of movies
+// get list of characters
 export const GET_LIST_REQUEST = 'GET_LIST_REQUEST';
 export const GET_LIST_RESPONSE = 'GET_LIST_RESPONSE';
 export const GET_LIST_FAILED = 'GET_LIST_FAILED';

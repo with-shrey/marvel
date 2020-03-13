@@ -9,6 +9,7 @@ const initialState = {
     list:[]
 };
 
+
 export const listReducer = createReducer(initialState, {
     [types.GET_LIST_REQUEST](state) {
         return {
