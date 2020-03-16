@@ -13,6 +13,7 @@
   https://blog.carbonfive.com/2016/09/29/setting-up-react-native-build-environments-using-nativemodules/
 
 TIP: white test suites in different `.js` files and import them in a `.spec.js` file
+https://stackoverflow.com/questions/32751695/how-to-run-jest-tests-sequentially
 
 ## Sample Configuration for Attached Device
 ```

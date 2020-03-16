@@ -6,7 +6,7 @@
     "android": "react-native run-android --main-activity SplashActivity",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest",
+    "test": "jest ./app",
     "lint": "eslint .",
     "e2e": "detox test --configuration android",
     "e2e:build": "detox build --configuration android"
