@@ -102,7 +102,7 @@ export default class LoginView extends Component {
 
   render() {
     return (
-      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()} testID="loginView" >
         <KeyboardAvoidingView
           style={styles.container}
           behavior="padding"
@@ -115,6 +115,7 @@ export default class LoginView extends Component {
           />
           <Image source={Images.appLogoDark} style={styles.logo} />
           <TextInput
+            testID="emailField"
             onChangeText={this.handleInputEmail}
             underlineColorAndroid="transparent"
             placeholder="Email"
@@ -124,6 +125,7 @@ export default class LoginView extends Component {
             style={styles.email}
           />
           <TextInput
+            testID="passwordField"
             onChangeText={this.handleInputPassword}
             underlineColorAndroid="transparent"
             placeholder="Password"
@@ -133,7 +135,9 @@ export default class LoginView extends Component {
             name="password"
             style={styles.password}
           />
-          <TouchableOpacity onPress={() => this.handleLogin()}>
+          <TouchableOpacity 
+          testID="loginButton"
+          onPress={() => this.handleLogin()}>
             <View style={styles.btnLogin}>
               <Text style={styles.btnLoginText}>LOGIN</Text>
             </View>

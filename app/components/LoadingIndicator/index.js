@@ -33,7 +33,7 @@ export default class LoadingIndicator extends Component {
             duration: 3000,
             easing: Easing.linear
           }
-        ).start(() => this.runAnimation())
+        ).start()
     }
 
     render() {
