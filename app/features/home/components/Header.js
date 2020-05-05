@@ -20,6 +20,7 @@ function Header(props) {
         <View style={style.container}>
             <Text style={style.title}>Marvel Characters</Text>
             <TouchableOpacity
+                testID="refreshButton"
                 onPress={() => props.requestList()}
             >
                 <Image style={style.icon} source={RefreshIcon}/>

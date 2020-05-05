@@ -6,8 +6,10 @@
     "android": "react-native run-android --main-activity SplashActivity",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest",
-    "lint": "eslint ."
+    "test": "jest ./app",
+    "lint": "eslint .",
+    "e2e": "detox test --configuration android",
+    "e2e:build": "detox build --configuration android"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.8.1",
@@ -32,6 +34,7 @@
     "@react-native-community/eslint-config": "^0.0.6",
     "@react-native-community/eslint-plugin": "^1.0.0",
     "babel-jest": "^24.9.0",
+    "detox": "^16.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
@@ -48,5 +51,16 @@
     },
     "setupTestFrameworkScriptFile": "<rootDir>/jest/setup.js",
     "automock": false
+  },
+  "detox": {
+    "test-runner": "jest",
+    "configurations": {
+      "android": {
+        "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+        "build": "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
+        "type": "android.attached",
+        "name": "DXEDU17C15001365"
+      }
+    }
   }
 }

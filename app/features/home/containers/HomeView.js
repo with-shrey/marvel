@@ -66,6 +66,7 @@ export default class HomeView extends Component {
         <HeaderView />
         <View style={styles.listContainer}>
           <FlatList
+            testID="characterList"
             ref={this.flatListRef}
             data={this.props.list}
             renderItem={({ item }) => (
@@ -77,6 +78,7 @@ export default class HomeView extends Component {
         </View>
         {this.props.loadingList && <LoadingIndicator />}
         <TouchableOpacity
+            testID="logoutButton"
             style={styles.floatingButton}
             onPress={() => this.logoutUser()}
         >
